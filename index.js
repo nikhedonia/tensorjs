@@ -1,12 +1,12 @@
 
 
-function T(F){
-  return F::L(...this);
+function T(dims,F){
+  return F::Loop(...dims);
 }
 
 function dim(){
-  var A=[];
-  var L=this;
+  let A=[];
+  let L=this;
   while( L.length ){
     A.push(L.length);
     L=L[0];
@@ -14,15 +14,15 @@ function dim(){
   return A;
 }
 
-function S(n,...N){
-  var S=0;
+function Sum(n,...ns){
+  let S=0;
 
-  if(N.length){
-    for(var i=0;i<n;++i){
-      S+=( this.bind(this,i)::S(...N ) );
+  if(ns.length){
+    for(let i=0;i<n;++i){
+      S+=( this.bind(this,i)::Sum(...s) );
     }
   }else{
-    for(var i=0;i<n;++i){
+    for(let i=0;i<n;++i){
       S+=this(i);
     }    
   }
@@ -30,31 +30,37 @@ function S(n,...N){
   return S;
 }
 
-function L(n,...N){
-  var A=[];
-  
+function Loop(n,...ns){
   if(n==undefined){
-    return this::S(...N);
+    return this::Sum(...ns);
   }
     
-  if(N.length){
-    for(var i=0;i<n;++i){
-      A.push( this.bind(this,i)::L(...N ) );
+  let A=new Array(n);
+  if(ns.length){
+    for(let i=0;i<n;++i){
+      A[i] = this.bind(this,i)::Loop(...ns) ;
     }
   }else{
-    for(var i=0;i<n;++i){
-      A.push( this(i) );
+    for(let i=0;i<n;++i){
+      A[i] = this.call(this,i);
     }    
   }
   return A;
 }
 
+function all(F){
+  if( Array.isArray(this) ){
+    return this.map(x=>x::all(F));
+  }else{
+    return F(this);
+  }
+}
+
+
 var m=[[1,1],[1,1]];
 var v=[1,2];
 
-
-var M= [2,2]::T( i => j =>  m[j][i] * v[j]  )
-
+var M= T( [2,2] , (i,j) => m[j][i] * v[j]  )
 
 
-console.log( M::dim() );
+console.log(M)// , M::all(x=>x+1) );
