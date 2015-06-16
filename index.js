@@ -57,10 +57,15 @@ function all(F){
 }
 
 
+Mult = (m1,m2) => T( [m1[0].length,m2.length,,m1.length], (i,j,k) => m[i][k] * v[j][k] )
+
+
+T( [1,2] , (i,j)=> m[i][j] * v[j] );
+
 var m=[[1,1],[1,1]];
 var v=[1,2];
 
 var M= T( [2,2] , (i,j) => m[j][i] * v[j]  )
 
 
-console.log(M)// , M::all(x=>x+1) );
+console.log(M, mult(M,M) );
