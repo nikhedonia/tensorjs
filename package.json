@@ -23,5 +23,8 @@
   },
   "dependencies": {
     "babel-runtime": "^5.8.5"
+  },
+  "devDependencies": {
+    "babel-jscs": "^2.0.1"
   }
 }
