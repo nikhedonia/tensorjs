@@ -1,5 +1,5 @@
-import { loop } from './loop'
+import { loop } from "./loop"
 
-export function T(dims,f){
+export function T(dims, f) {
   return f::loop(...dims);
 }

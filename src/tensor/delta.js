@@ -1,1 +1,1 @@
-export const delta = (...i) => i.reduce( (a,b) => a==b,1);
+export const delta = (...i) => i.reduce( (a, b) => a == b, 1);
