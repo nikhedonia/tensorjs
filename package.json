@@ -25,6 +25,7 @@
     "babel-runtime": "^5.8.5"
   },
   "devDependencies": {
-    "babel-jscs": "^2.0.1"
+    "babel-jscs": "^2.0.1",
+    "source-map-support": "^0.3.2"
   }
 }
