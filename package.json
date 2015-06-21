@@ -4,7 +4,8 @@
   "description": "library for handling multidimensional arrays",
   "main": "index.js",
   "scripts": {
-    "test": "./scripts/testsuite.bash"
+    "test": "./scripts/test.bash",
+    "testsuite": "./scripts/testsuite.bash"
   },
   "repository": {
     "type": "git",

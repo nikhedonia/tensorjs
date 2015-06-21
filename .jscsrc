@@ -2,7 +2,9 @@
   "esprima": "babel-jscs",
   "excludeFiles": [
     "node_modules/**",
-    "bower_components"
+    "bower_components",
+    "scripts/**",
+    ".tmp/**"
   ],
   "plugins": [
     "jscs-trailing-comma"
@@ -80,6 +82,6 @@
   "validateIndentation": 2,
   "disallowMixedSpacesAndTabs": true,
   "disallowTrailingWhitespace": true,
-  "maximumLineLength": 80,
+  "maximumLineLength": 150,
   "requireSpaceAfterLineComment": true
 }
