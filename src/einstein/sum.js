@@ -9,6 +9,5 @@ export function sum(n, ...ns) {
       s+= this(i);
     }
   }
-  console.log('s',s);
   return s;
 }
