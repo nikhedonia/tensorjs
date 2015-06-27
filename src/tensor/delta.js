@@ -1,1 +1,3 @@
-export const delta = (...i) => i.reduce( (a, b) => a == b, 1);
+export function delta(...i) {
+  return i.every( x => x === i[0] ) ? 1 : 0;
+}
