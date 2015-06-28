@@ -9,7 +9,7 @@ describe("dim()", ()=> {
 
   describe("arrays", ()=> {
     it("should have correct dim ", ()=> {
-      ([ [ [1,2,3],[4,5,6] ] ])::dim().should.deep.equal([1,2,3]);
+      ([ [ [1, 2, 3], [4, 5, 6] ] ])::dim().should.deep.equal([1, 2, 3]);
     });
   });
 

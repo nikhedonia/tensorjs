@@ -10,7 +10,7 @@ describe("loop()", ()=> {
 
   describe("over one dimension", ()=> {
     it("should count", ()=> {
-      ( (i)=>i ) :: loop([3]).should.deep.equal( [0,1,2] );
+      ( (i)=>i ) :: loop([3]).should.deep.equal( [0, 1, 2] );
     });
   });
 
@@ -25,7 +25,7 @@ describe("loop()", ()=> {
     });
 
     it("should switch to sum after undefined", ()=> {
-      ( (i, j)=>i+j ) :: loop(2, undefined,2) . should.deep.equal([1,3]);
+      ( (i, j)=>i + j ) :: loop(2, undefined, 2) . should.deep.equal([1, 3]);
     });
 
   });

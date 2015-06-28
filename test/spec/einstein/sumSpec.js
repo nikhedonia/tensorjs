@@ -15,7 +15,7 @@ describe("sum()", ()=> {
 
   describe("over multiple dimensions", ()=> {
     it("should sum correctly", ()=> {
-      [( (i, j)=>i*j )::sum(2, 2)].should.deep.equal( [1] );
+      [( (i, j)=>i * j )::sum(2, 2)].should.deep.equal( [1] );
     });
   });
 });
