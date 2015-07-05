@@ -1,6 +1,6 @@
 import { dim } from "../array/dim"
 import { remap } from "../array/remap"
-import { T } from "../einstein/tensor"
+import { over } from "./over"
 
 export function sumOver(...bits) {
   const dims = this::dim();
@@ -14,11 +14,11 @@ export function sumOver(...bits) {
       ++k;
       m.push(i + s);
       sl.push(d);
-    }else {
+    } else {
       ll.push(d);
       m.push(i - k);
     }
   });
 
-  return T( [ ...ll, null, ...sl], this::remap(...m) );
+  return [ ...ll, null, ...sl]::over( this::remap(...m) );
 }

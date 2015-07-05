@@ -1,22 +1,21 @@
-import { loop } from "../../../src/einstein/loop";
+import { over } from "../../../src/tensor/over";
 
-describe("loop()", ()=> {
+describe("over()", ()=> {
   describe("zero dimension", ()=> {
-    it("should return undefined", ()=> {
-      [( (i)=>1 ) :: loop()] .should.deep.equal( [undefined] );
+    it("should return zero", ()=> {
+      [[]::over(i=>1)].should.deep.equal( [undefined] );
     });
-
   });
 
   describe("over one dimension", ()=> {
     it("should count", ()=> {
-      ( (i)=>i ) :: loop([3]).should.deep.equal( [0, 1, 2] );
+      [3]::over(i=>i).should.deep.equal( [0, 1, 2] );
     });
   });
 
   describe("over multiple dimensions", ()=> {
     it("should incremment indexes from right to left", ()=> {
-      ( (i, j, k)=>[i, j, k] ) :: loop(2, 2, 2) . should.deep.equal([
+      [2, 2, 2]::over((i, j, k)=>[i, j, k]).should.deep.equal([
         [[[0, 0, 0], [0, 0, 1]],
         [[0, 1, 0], [0, 1, 1]]],
         [[[1, 0, 0], [1, 0, 1]],
@@ -25,7 +24,7 @@ describe("loop()", ()=> {
     });
 
     it("should switch to sum after undefined", ()=> {
-      ( (i, j)=>i + j ) :: loop(2, undefined, 2) . should.deep.equal([1, 3]);
+      [2, null, 2]::over( (i, j)=>i + j ).should.deep.equal([1, 3]);
     });
 
   });

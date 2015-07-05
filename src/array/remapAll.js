@@ -1,9 +1,8 @@
 import { remap } from "./remap"
 import { dim } from "./dim"
-import { loop } from "../einstein/loop"
+import { over } from "../tensor/over"
 
 export function remapAll(...mapping) {
-  const dims = this::dim();
-  return this::remap(...mapping)::loop(...dims);
+  return this::dim()::over( this::remap(...mapping) );
 }
 

@@ -1,3 +1,3 @@
-import { T } from "../einstein/tensor"
+import { over } from "../tensor/over"
 
-export const dot = (a, b) => T([, Math.min(a.length, b.length) ], (i) => a[i] * b[i] );
+export const dot = (a, b) => [null, Math.min(a.length, b.length)]::over( (i) => a[i] * b[i] );

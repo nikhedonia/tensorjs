@@ -1,3 +1,3 @@
-import { T } from "../einstein/tensor"
+import { over } from "../tensor/over"
 
-export const dyad = (a, b) => T([a.length, b.length], (i, j) => a[i] * b[j] );
+export const dyad = (a, b) => [a.length, b.length]::over( (i, j) => a[i] * b[j] );
