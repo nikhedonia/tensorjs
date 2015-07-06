@@ -12,13 +12,13 @@ export function sumOver(...bits) {
   dims.forEach( (d, i)=> {
     if (bits[i]) {
       ++k;
-      m.push(i + s);
+      m.push(i + s * (i < s));
       sl.push(d);
     } else {
       ll.push(d);
       m.push(i - k);
     }
   });
-
+  console.log(ll, sl, m)
   return [ ...ll, null, ...sl]::over( this::remap(...m) );
 }
