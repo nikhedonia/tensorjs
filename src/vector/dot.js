@@ -1,3 +1,7 @@
 import { over } from "../tensor/over"
 
-export const dot = (a, b) => [-Math.min(a.length, b.length)]::over( (i) => a[i] * b[i] );
+export function dot(b) {
+  return [-Math.min(this.length, b.length)]::over(
+      (i) => this[i] * b[i]
+  );
+}
